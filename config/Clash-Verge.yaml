@@ -68,7 +68,7 @@ proxy-groups:
   - {name: Global, <<: *a3}
   - {name: AppleService, <<: *a3}
   - {name: Bili, type: select, proxies: [DIRECT, HongKong, Taiwan]}
-  - {name: OpenAIService,   type: select, proxies: [UnitedStates]}
+  - {name: OpenAIService, <<: *a4, filter: "GPT"}
   - {name: GMedia, <<: *a3}
   - {name: Google, <<: *a3}
   - {name: TelegramMessages, <<: *a3}
