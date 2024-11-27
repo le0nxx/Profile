@@ -71,6 +71,7 @@ proxy-groups:
   - {name: OpenAIService,   type: select, proxies: [UnitedStates]}
   - {name: GMedia, <<: *a3}
   - {name: Google, <<: *a3}
+  - {name: Games, <<: *a3}
   - {name: TelegramMessages, <<: *a3}
   - {name: TwitterService, <<: *a3}
   - {name: Games, <<: *a3}
