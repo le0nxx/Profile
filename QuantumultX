@@ -76,7 +76,7 @@ https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.re
 
 [server_remote]
 #节点订阅链接
-；#emoji=2&tfo=1&info=1&in=V+T+优化, tag=Mojie, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png, update-interval=86400, opt-parser=true, enabled=true
+https://onlysub.mjurl.com/api/v1/client/subscribe?token=1811d2134202e3efb5a39bfa7bd09cfe#emoji=2&tfo=1&info=1&in=V+T+优化, tag=Mojie, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png, update-interval=86400, opt-parser=true, enabled=true
 
 
 
