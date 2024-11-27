@@ -72,6 +72,7 @@ proxy-groups:
   - {name: AppleService, <<: *a3}
   - {name: GMedia, <<: *a3}
   - {name: Google, <<: *a3}
+  - {name: Games, <<: *a3}
   - {name: TelegramMessages, <<: *a3}
   - {name: TwitterService, <<: *a3}
   - {name: ADBlock, type: select, proxies: [REJECT]}
