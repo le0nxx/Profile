@@ -63,24 +63,28 @@ proxy-providers:
     
 proxies: null
 proxy-groups:
-  - {name: AutoSwitch, <<: *a4, filter: "^(?!.*(?:日|JP|(?i)Japan)).*(?=.*优化)"}
-  - {name: OpenAIService, <<:  *a4, filter: "GPT"}
-  - {name: Bili, type: select, proxies: [DIRECT, HongKong, Taiwan]}
-
+#分流分组
   - {name: Manual, <<: *a2}
   - {name: Global, <<: *a3}
   - {name: AppleService, <<: *a3}
+  - {name: Bili, type: select, proxies: [DIRECT, HongKong, Taiwan]}
+  - {name: OpenAIService,   type: select, proxies: [UnitedStates]}
   - {name: GMedia, <<: *a3}
   - {name: Google, <<: *a3}
   - {name: TelegramMessages, <<: *a3}
   - {name: TwitterService, <<: *a3}
+  - {name: Games, <<: *a3}
   - {name: ADBlock, type: select, proxies: [REJECT]}
   - {name: OutRule, <<: *a3}
+  
+#节点分组
+  - {name: AutoSwitch, <<: *a4, filter: "^(?!.*(?:日|JP|(?i)Japan)).*(?=.*优化)"}
   - {name: HongKong, <<: *a4, filter: "港|HK|(?i)Hong"        }             # a4更改为a2，即为手动选择
   - {name: Japan, <<:  *a4, filter: "日|JP|(?i)Japan"     }             # a4更改为a2，即为手动选择     
   - {name: Taiwan, <<: *a4, filter: "台|TW|(?i)Taiwan"      }             # a4更改为a2，即为手动选择
   - {name: UnitedStates, <<: *a4, filter: "美|US|(?i)States|American"}             # a4更改为a2，即为手动选择
   - {name: Singapore, <<: *a4, filter: "新|SG|(?i)Singapore"    }            # a4更改为a2，即为手动选择
+
 
 # 分流规则 
 rule-providers:
