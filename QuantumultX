@@ -1,0 +1,172 @@
+
+[general]
+
+# > 用于节点延迟测试
+server_check_url= http://www.gstatic.com/generate_204
+# > 服务器测试超时时间 (毫秒)
+server_check_timeout = 3000
+# > 用于设置图标显示
+profile_img_url=https://github.githubassets.com/images/modules/site/integrators/google.png
+# > 用于Check节点IP地址(以下geo_location_checker任选一个即可)
+;geo_location_checker=disabled
+geo_location_checker=http://ip-api.com/json/?lang=en-US, https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/IP_API.js
+# > 功能强大的解析器，用于引用资源的转换
+resource_parser_url=https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js
+# > 下列路径将不经过QuanX的处理
+excluded_routes=239.255.255.250/32, 24.105.30.129/32, 185.60.112.157/32, 185.60.112.158/32, 182.162.132.1/32
+# udp_whitelist=1-442, 444-65535
+# > 第一个filter为4g模式开启规则分流，第二个filter为其他wifi下开启规则分流，第三个wifi1修改成你路由器翻墙的wifi名开启直连模式，第四个wifi2为你公司或者其他有路由器翻墙的WiFi名走直连）
+# > 默认关闭根据wifi切换模式，如需开启，删除下方的"#"即可
+#running_mode_trigger=filter, filter, wifi1:all_direct, wifi2: all_direct
+# > dns_exclusion_list
+dns_exclusion_list=*.10099.com.cn, *.cmpassport.com, *.jegotrip.com.cn, *.icitymobile.mobi, id6.me, *.pingan.com.cn
+
+
+
+[task_local]
+
+# > 请手动添加下面的订阅（流媒体Task订阅集合）
+; https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/UI-Action.json
+# > 流媒体解锁查询
+event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=流媒体解锁查询, img-url=arrowtriangle.right.square.system, enabled=true
+
+
+
+[rewrite_local]
+
+
+
+[rewrite_remote]
+
+# ======= 会员解锁 ======= #
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Bilibili.conf, tag=Bilibili广告净化@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/UnlockVip/Spotify.conf, tag=Spotify音乐VIP[音质≤高]@app2smile, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/dev/raw/master/ForOwnUse.conf, tag=墨鱼专属VIP@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+
+
+# ======= 广告净化 ======= #
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/StartUp.conf, tag=墨鱼去开屏2.0@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/CaiYunAds.conf, tag=彩云天气净化@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zheye/zheye.snippet, tag=知乎去广告及体验增强@blackmatrix7, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/app2smile/rules/raw/master/module/tieba-qx.conf, tag=百度贴吧去广告@app2smile, update-interval=86400, opt-parser=false, enabled=false
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Applet.conf, tag=微信小程序去广告@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/YoutubeAds.conf, tag=油管去广告@Maasea, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Weibo.conf, tag=微博去广告@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Ximalaya.conf, tag=喜马拉雅去广告[卸载重装]@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Amap.conf, tag=高德地图净化[卸载重装]@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/NeteaseAds.conf, tag=网易云净化@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+
+
+# ======= 网页优化 ======= #
+https://github.com/ddgksf2013/Rewrite/raw/master/Html/Q-Search.conf, tag=Safari超级搜索@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/Html/Douban.conf, tag=豆瓣网页观影快捷跳转@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://github.com/ddgksf2013/Rewrite/raw/master/Html/General.conf, tag=Google重定向@DivineEngine, update-interval=86400, opt-parser=false, enabled=true
+
+
+# ======= 功能增强 ======= #
+https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/XiaoHongShu.conf, tag=小红书净化+去水印@ddgksf2013, update-interval=86400, opt-parser=false, enabled=true
+https://gist.githubusercontent.com/ddgksf2013/f43026707830c7818ee3ba624e383c8d/raw/baiduCloud.adblock.js, tag=百度网盘净化@ddgksf2013, update-interval=86400, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/UnblockURLinWeChat.conf, tag=微信解锁被屏蔽的URL@zZPiglet, update-interval=86400, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.conf, tag=BoxJS商店版@chavyleung, update-interval=86400, opt-parser=false, enabled=true
+
+
+[server_local]
+
+
+
+[server_remote]
+#节点订阅链接
+；#emoji=2&tfo=1&info=1&in=V+T+优化, tag=Mojie, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png, update-interval=86400, opt-parser=true, enabled=true
+
+
+
+[dns]
+
+prefer-doh3
+doh-server = https://223.5.5.5/dns-query, https://223.6.6.6/dns-query
+# > QuantumultX开启IPV6方法，删去下面的「no-ipv6」，在「VPN」栏中，开启「兼容性增强」
+no-ipv6
+no-system
+server=223.5.5.5
+server=119.29.29.29
+server=114.114.114.114
+server=/*.icloud.com/119.29.29.29
+server=/*.icloud.com.cn/119.29.29.29
+server=/*.tencent.com/119.29.29.29
+server=/*.weixin.com/119.29.29.29
+
+
+
+[policy]
+static=Global, Auto, direct, HongKong, Taiwan, Japan, Singapore, UnitedStates, proxy, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+static=GMedia, Auto, direct, HongKong, Taiwan, Japan, Singapore, UnitedStates, proxy, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png
+static=Apple, direct, HongKong, Taiwan, Japan, Singapore, UnitedStates, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+static=Bilibili, direct, HongKong, Taiwan, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png
+static=Spotify, UnitedStates, direct, Taiwan, HongKong, Japan, Singapore, proxy, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Spotify.png
+Static=Others, server-tag-regex=^(?!.*(港|台|日|韩|新|美|优化|GPT)).*$, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Star.png
+# > 白名单冗余策略
+static=OutRule, Atuo, Global, direct, Others, Japan, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png
+
+#默认设置15分钟测速一次，可自行修改check-interval=后面的数值（单位：秒），tolerance=后面的数值不建议修改
+#将下面的url-latency-benchmark的内容替换成static，并删除[check-interval=900, tolerance=0, ]即可手动选择节点
+
+url-latency-benchmark=Auto, server-tag-regex=(?=.*(优化|GPT))^((?!.*(日|JP|(?i)Japan)).)*$,check-interval=900, tolerance=0, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+url-latency-benchmark=OpenAI, server-tag-regex=(?=.*GPT), check-interval=900, tolerance=0, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
+url-latency-benchmark=HongKong, server-tag-regex=(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|美)).)*$, check-interval=900, tolerance=0, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+url-latency-benchmark=UnitedStates, server-tag-regex=(?=.*(美|US|(?i)USA|States|American))^((?!.*(港|台|日|韩|新)).)*$, check-interval=900, tolerance=0, alive-checking=false, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+url-latency-benchmark=Taiwan, server-tag-regex=(?=.*(台|TW|(?i)Taiwan))^((?!(港|日|韩|新|美)).)*$, check-interval=900, tolerance=0, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+url-latency-benchmark=Singapore, server-tag-regex=(?=.*(新|狮|獅|SG|(?i)Singapore))^((?!(港|台|日|韩|美)).)*$, check-interval=900, tolerance=0, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+url-latency-benchmark=Japan, server-tag-regex=(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$, check-interval=900, tolerance=0, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+
+
+[filter_remote]
+
+https://raw.githubusercontent.com/ddgksf2013/Filter/master/Unbreak.list, tag=RuleCorrect, force-policy=direct, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/Cats-Team/AdRules/main/qx.conf, tag=ADBlock, force-policy=reject, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list, tag=WeChatDirect, force-policy=direct, update-interval=172800, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/TikTok/TikTok.list, tag=TikTok, force-policy=Global, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/ddgksf2013/Filter/master/GoogleVoice.list, tag=Google Voice, force-policy=UnitedStates, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list, tag=OpenAi, force-policy=OpenAI, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Spotify/Spotify.list, tag=Spotify, force-policy=Spotify, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/ddgksf2013/Filter/master/Streaming.list, tag=GMedia, force-policy=GMedia, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/ddgksf2013/Filter/master/StreamingSE.list, tag=Bilibili, force-policy=Bilibili, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list, tag=Apple, force-policy=Apple, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list, tag=Global, force-policy=Global, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.list, tag=China, force-policy=direct, update-interval=172800, opt-parser=true, enabled=true
+
+
+
+[filter_local]
+
+# > 一些比较容易忽视的分流
+host, ad.12306.cn, direct
+host, sdkapp.uve.weibo.com, direct
+
+# > local
+ip-cidr, 10.0.0.0/8, direct
+ip-cidr, 127.0.0.0/8, direct
+ip-cidr, 172.16.0.0/12, direct
+ip-cidr, 192.168.0.0/16, direct
+ip-cidr, 224.0.0.0/24, direct
+ip-cidr, 182.254.116.0/24, direct
+geoip, cn, direct
+final, OutRule
+
+
+
+[http_backend]
+
+# > Boxjs设置，改为使用http backend方式，访问地址改为http://127.0.0.1:9999，更新配置后请长按风车-更新，然后重启代理
+# > BoxJs相关教程参考「https://docs.boxjs.app」
+https://raw.githubusercontent.com/chavyleung/scripts/master/chavy.box.js, host=boxjs.com, tag=BoxJS, path=^/, enabled=true
+
+
+
+[mitm]
+passphrase = C4344416
+p12 = MIILuwIBAzCCC4UGCSqGSIb3DQEHAaCCC3YEggtyMIILbjCCBccGCSqGSIb3DQEHBqCCBbgwggW0AgEAMIIFrQYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQIn4LnR6EF8rcCAggAgIIFgP9Z/gxXKIjtZqg+/RMARg5XzFEg+JUJ2zJUerCPLgJlYMpZw2rXy79i/wThGrZOJUGp6ip+eRakusFAkUU+R+IwJ6XMmoMYg0zW4X3bG/ymQYu0vNRI7UZ2YCOZZkvewQbC6AJisnYz02EuY1s2srlE+fjjx7wsCe/5+usELeGW9AQexOgvAzhYEYGstHe8Ic6gzMPBoL6+0vGpRP9ykY5b18lRNKw+F8JVUeBHz6QBylqJ58C2NPpEK50LBCikn+zNkUtF9imH8WitxPSFZ0Cu/sjWuqvaHpExlF0Z2QLTikvpEKQNtW83irTx1JA9ewznVO87vbc166CcrdwxcH2+sfZRDrmH/0okv8aCmBgnOPCcB7uc05vAjdnQo5Y1uaNnNjCS5+d/zG8a4iTWV+Wm6o0oRCy68P1vyAOzVNYIb8qvQKIzca+IQEUb4fToUNhps2uW8wcn3KovDAvsm3xHvtyTPPNJS24A3nBfrN7NcYz16EMp/gSUHLpxd1mQ1r6xoxEqZTIJ1EbpfVAL9g1WH4FF50QCrHsgl5Kcfzhm8wMfV+jC9N77vJjE2DBkiSM3yR+2YQV/gyNiEqLlUkf/4zmiLncogD+RYSboROro8gjU+Nl2XjMwVuFzeeNqMr2/Uvcp3ZZWOlK+fO+dbMj82+yKZvkmad93JSD6vnI/TGTKsl5tEBS8nT0jfv7TEnsjeaFLHi37m/Ol2/3zIi8y82YuE8+H9jDutEeGLGshkc3PmeRSfdBhV7szVXSzOkVPqwP+jIA4J+9kQvY6uSQx9jlXsK3vLBtZQ2anByBgGFyYKaUwcHatItjuh07p7BeeM3y4b4tOMu48c+HTXN+yjhGRApD1KR9hUcOFtq8gerL0HtjWXFbOxUkrwtlfgck5ytQhZLnoa6u8TlLuQHwQcePnqWk8/uKZMwHeWIeP3xqXphDVVJx9/jt2RwTuttEnhhiFUi69d1wdcRU/TaYrBdVCl1zzu3Rn3iHf4UNSzPFM/BNYRGpdxDzWPL65uNnlDu+77Lntx2qHUjs/TAjBIjL24cCwtGXJZeKW48oA4Zm62SLy5/Px2jg5HuV/RWiA662OHlYN7nvlmj83dmBlADvPNg4uvKSiDzaLhkTOyVZAy4+MwJNoXhwfFbWlosPXZIBaShV2VYuzI3WluD8bbJa1cT34cVIYjIADJm1hu+EKmwRbx0Q3slPgfKqir+Kj3ndgs16HeC80epSNzu2IVNhHjlysmeQQ753pclXvOGWy0jc9mrcnLEPcLk7kHPuvayqIc+ztJTbIUJQ+3Ax27LZPRVUUzZ/ijjx7gCEKbVW1R5gzrsR/SIWweyaZjuTRo7SQxYgk10NuP376zN0MeLAUf4lxrp1Hv4nRlbga9pMcwvYsbB4HN9J5luQNKN94+r0nry83Qmq/JmK+uFm1xIGjvACGCjYj/fvDOTuHNRBX7fTP0YW7l2BvCkyLIOF7T9+AW0+GG6jEEuhZqYeGcsTdLIatnYz87m3ohzBvcdASFiswdbrg1UDJnFEQT8W1u9uYsX/yVIaWZFdApg+DYtiHtNOC6A/Egr6yreU715yadgMPLkPQv7mcBgHhnTAIDZWfqgYU/r/hzB1BitXQUdaTrIJrXTOC15kWaWyshrx89JR49403nTn76EDoyICtR+eG1y47bRyy0s0Wf/9OEEHMEvZlH25QPschR4geAz5TzJho/E2fNh507TlSlo4cbzGFdT9Bh/HHlzJGPOiNSQ+pUDI/DRm3sSExrt2ap8aC4HTKWIKdLuSVYv8zf3z5LNFbFudjIcnkeskUu9V48CIdoheWpCY3/elXPXCGqQLnnTLoEwwIKIP19mxzFOsemXL4tbrzk6pS1CSgv1MwggWfBgkqhkiG9w0BBwGgggWQBIIFjDCCBYgwggWEBgsqhkiG9w0BDAoBAqCCBO4wggTqMBwGCiqGSIb3DQEMAQMwDgQI35/uJgemq6YCAggABIIEyGp5f6MJv75o085fppszVbECENrmMTVrNbxyxUWD32IB7rQIGJIltznKrJwE1GO+QZmo5Zj2kJOj8CZA4oVAlL2QgK8Z2mZVpu8USORsBK15dlc+zl432XXzI89mvXWKdKOdOR0I/NE+TInDHkscLapSyHBzaDkizHzkO1LHisWJTHCdHSMrSgD0+3/f47t4vliV6pRsM6bD/PgEqKFnQ31MHMdqHnS6ms8mBkUHPQah4yl1SVOqYUilK/Em7EP1A3j6ydSGhg6JJ3B/Pa5GwSh/wAG1BS3L5vAy1TTaNMls7N9ccFC+RMROl8pXAdjWs65gEQ4XVaTV50/5ClAIGeHru3MdNptcRi/3+tG8SEJJp44Wk1n5YHk+WLQXGc1EeIF83KKSWGkjxmBQ/7VqAn//LYqTPuu7PE1GrkZES6vL5ryku2n6Wc84MO7Rj+SL93XxQ+dPKh/wCIU6OHRgmIuiFtjatT2cZ6y6b8njo6wLLUwwGfmlEL9+VUxDeTfLk5VFVyBkT3sGKSV/+cL93wxp226+ryXg7UvBZ3LzI2XTUGKpuKi0W2MYpraoFsVWILGT7okXYeeajb6fXbbylDDygZQIMIradBAWY2yIJDPNxWcllqwact7lMRf3hl7ziXHNqQaYciBB+TmTDCRhxw9EtWl6SR/Bwe+tPh/PddM97IRfQCmtSx1rEcZoxhGpW0qzxyTKhgY8ZgrdLFFeSsjc5dUuwLXRr8MqTOq4IE6sowX1159fH/f6UI1+mffFoQp94JxkoT2Yf+41uIirjnlBv8f7POp2yQjTt5G63QriLivq3dlj4mHLXj9+Ha/gde68EvqK75DmBGK6tefel/xd6/LxCTI5I/Ep/9x1O9tsZNXaYEOvQRKWgPzqzX2bLvB9/+BflVa1y4nOWl03NVQ93pZMyRDHkUzPqdKa2B+ypvEA3rGMjutwHTGkrQIuIy68U+2WshtjoP/lX24dtoMyhXuAGqY4doghHYahw8agqSf3lk9AsG1/K9LZrWKx/AT0MdO1QQVRCnII+DtT1aKPWzDesV5/pA1hYvbiCKkAgFTQC2HKmAK1zOAPP7kAOQmfAtriS7NaU8VJb90SQzQCUp80atWbrTnOPhJMYrJyVsl28InOzowxnvFtXXsWZJIDt8dO7W3zXYNLJ4IuDhihxSC+FvMhAUE/drdMu6vrDBUJ3GuxWWHxM/cT+A3HvJbMpQL4uW1q724v8AeTxnCgrWgY3V7iq+K03/qAUywj9uvIsjUDqlbbv8GL8tTmTSt6ob4Nxf7pShUIBEaLtJ+RHiMco/XFI1G+SPX9qG2FViy9TrvgIBuzR0xN3XdKZgUVowge0fl5t8VAQYzA0kO5YXLwXX6P5G0xrgribm0gHJn89/wBQ0VkiKNsmsTKcXai4TdD98djDjOUT4SBtZvGqBme4z3DENh02wqMdr44RqRQUnpONkBYLKjzW7VRC9BV73iGTxoRlB9/ujx2fo7SVL3sEDul1GJxCUirirrl1+lf7jTxyeUoXHg76Y2IGr7eKJWVHDuo6a3u+wE9wCokewvmt9OJkd2mh5tYoh5T5hjZAWAkDI8kBz61PGxukqUFGDiPOpq6XQlBeHUqrLSTug/KB6ixyzGBgjAjBgkqhkiG9w0BCRUxFgQU2mgwZywdHtl7k1be4ivTaQVihtAwWwYJKoZIhvcNAQkUMU4eTABRAHUAYQBuAHQAdQBtAHUAbAB0ACAAWAAgAEMAQQAgAEUAMQAyADQANABGADUAQwAgACgAMgA2ACAATgBvAHYAIAAyADAAMgA0ACkwLTAhMAkGBSsOAwIaBQAEFFdudyz8ddpt/BttUDKmzg//VXIIBAgYrwyvA2LAbg==
+
+skip_validating_cert = true
+force_sni_domain_name = false
+
+hostname = -*.apple.com, -consumer.fcbox.com, -*huami.com, -*amemv.com, -*snssdk.com, -www.google.com
