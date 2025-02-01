@@ -1,11 +1,3 @@
-# UPDATED: 2025-02-01
-# HOST: 6
-# HOST-KEYWORD: 1
-# HOST-SUFFIX: 5
-# IP-ASN: 1
-# IP-CIDR: 2
-# TOTAL: 15
-
 HOST,api.deepseek.com,DeepSeek
 HOST,chat.deepseek.com,DeepSeek
 HOST,deepseek.com,DeepSeek
@@ -18,6 +10,3 @@ HOST-SUFFIX,deepseek.tech,DeepSeek
 HOST-SUFFIX,deepseekai.com,DeepSeek
 HOST-SUFFIX,deepseekai.xyz,DeepSeek
 HOST-KEYWORD,deepseek,DeepSeek
-IP-CIDR,203.0.113.0/24,DeepSeek
-IP-CIDR,192.0.2.0/24,DeepSeek
-IP-ASN,12345,DeepSeek
