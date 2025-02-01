@@ -1,0 +1,6 @@
+# DeepSeek AI 规则
+DOMAIN-SUFFIX,deepseek.com
+DOMAIN-SUFFIX,deepseek.xyz
+DOMAIN-SUFFIX,deepseek.tech
+DOMAIN,api.deepseek.com
+DOMAIN,chat.deepseek.com
