@@ -12,16 +12,12 @@ HOST,deepseek.com,DeepSeek
 HOST,deepseek.xyz,DeepSeek
 HOST,deepseek.tech,DeepSeek
 HOST,storage.deepseek.com,DeepSeek
-
 HOST-SUFFIX,deepseek.com,DeepSeek
 HOST-SUFFIX,deepseek.xyz,DeepSeek
 HOST-SUFFIX,deepseek.tech,DeepSeek
 HOST-SUFFIX,deepseekai.com,DeepSeek
 HOST-SUFFIX,deepseekai.xyz,DeepSeek
-
 HOST-KEYWORD,deepseek,DeepSeek
-
 IP-CIDR,203.0.113.0/24,DeepSeek
 IP-CIDR,192.0.2.0/24,DeepSeek
-
 IP-ASN,12345,DeepSeek
