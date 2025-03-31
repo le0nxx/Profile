@@ -147,7 +147,7 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates    
-  Adblock:
+  REJECT:
     type: select
     proxies:
       - Reject
@@ -246,7 +246,7 @@ rule-providers:
 
 
 rules:
-  - RULE-SET,Adblock,Adblock
+  - RULE-SET,Adblock,REJECT
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Speedtest,Speedtest
   - RULE-SET,GlobeMedia,GlobeMedia
