@@ -176,7 +176,7 @@ proxy-groups:
       - UnitedStates
 
 rule-providers:
-  AdBlock:
+  Adblock:
     type: http
     behavior: domain
     interval: 86400
