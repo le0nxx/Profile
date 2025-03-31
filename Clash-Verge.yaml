@@ -55,13 +55,7 @@ dns:
     ipcidr:
       - 240.0.0.0/4
 
-proxies:
-  - name: Manual
-    type: http
-    server: example.com
-    port: 8080
-    username: user
-    password: pass
+proxies: null
 
 proxy-groups:
   GlobeProxy:
@@ -108,6 +102,10 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates
+  OpenAI:
+    type: select
+    proxies: Subscribe
+    filter: (?i)GPT
   Speedtest:
     type: select
     proxies:
@@ -147,7 +145,7 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates    
-  REJECT:
+  Reject:
     type: select
     proxies:
       - Reject
@@ -159,7 +157,7 @@ rule-providers:
     interval: 86400
     url: https://ghp.ci/https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt,
     path: ./ruleset/Adblock.yaml
-  OpenAI:
+  OPENAI:
     type: http
     behavior: classical
     interval: 86400
@@ -246,8 +244,8 @@ rule-providers:
 
 
 rules:
-  - RULE-SET,Adblock,REJECT
-  - RULE-SET,OpenAI,OpenAI
+  - RULE-SET,Adblock,Reject
+  - RULE-SET,OpenAI,OPENAI
   - RULE-SET,Speedtest,Speedtest
   - RULE-SET,GlobeMedia,GlobeMedia
   - RULE-SET,Microsoft,GlobeProxy
