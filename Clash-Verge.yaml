@@ -175,10 +175,9 @@ proxy-groups:
       - Taiwan
       - UnitedStates    
   ADBlock:
-    type: select
-    proxies:
-      - Reject
-      - Direct
+    type: http
+    behavior: domain
+    interval: 86400
 
 rule-providers:
   REJECT:
