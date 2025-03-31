@@ -82,7 +82,8 @@ proxies:
     port: 1080
     username: "your_username"
     password: "your_password"
-
+  - name: "Reject"
+    type: reject
 
 proxy-groups:
   GlobeProxy:
@@ -131,8 +132,9 @@ proxy-groups:
       - UnitedStates
   OpenAI:
     type: select
-    proxies: Subscribe
-    filter: (?i)GPT
+    proxies:
+      - Subscribe
+    filter: "(?i)GPT"
   Speedtest:
     type: select
     proxies:
@@ -172,18 +174,18 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates    
-  Reject:
+  ADBlock:
     type: select
     proxies:
       - Reject
+      - Direct
 
 rule-providers:
-  Adblock:
+  REJECT:
     type: http
     behavior: domain
-    interval: 86400
-    url: https://ghp.ci/https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt,
-    path: ./ruleset/Adblock.yaml
+    url: https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt
+    path: ./ruleset/REJECT.yaml
   OPENAI:
     type: http
     behavior: classical
@@ -254,7 +256,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     interval: 86400
-    url: https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml,
+    url: https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml
     path: ./ruleset/ChinaIP.yaml
   Download:
     type: http
@@ -271,7 +273,7 @@ rule-providers:
 
 
 rules:
-  - RULE-SET,Adblock,Reject
+  - RULE-SET,REJECT,ADBlock
   - RULE-SET,OpenAI,OPENAI
   - RULE-SET,Speedtest,Speedtest
   - RULE-SET,GlobeMedia,GlobeMedia
