@@ -91,7 +91,7 @@ proxy-groups:
     proxies:
       - Auto-Select
       - Manual
-      - Direct
+      - DIRECT
       - Hongkong
       - Japan
       - Singapore
@@ -113,7 +113,7 @@ proxy-groups:
     proxies:
       - Auto-Select
       - Manual
-      - Direct
+      - DIRECT
       - Hongkong
       - Japan
       - Singapore
@@ -124,7 +124,7 @@ proxy-groups:
     proxies:
       - Auto-Select
       - Manual
-      - Direct
+      - DIRECT
       - Hongkong
       - Japan
       - Singapore
@@ -140,13 +140,13 @@ proxy-groups:
     proxies:
       - Auto-Select
       - Manual
-      - Direct
+      - DIRECT
   GlobeMedia:
     type: select
     proxies:
       - Auto-Select
       - Manual
-      - Direct
+      - DIRECT
       - Hongkong
       - Japan
       - Singapore
@@ -157,7 +157,7 @@ proxy-groups:
     proxies:
       - Auto-Select
       - Manual
-      - Direct
+      - DIRECT
       - Hongkong
       - Japan
       - Singapore
@@ -168,24 +168,21 @@ proxy-groups:
     proxies:
       - Auto-Select
       - Manual
-      - Direct
+      - DIRECT
       - Hongkong
       - Japan
       - Singapore
       - Taiwan
-      - UnitedStates    
-  ADBlock:
+      - UnitedStates
+
+rule-providers:
+  AdBlock:
     type: http
     behavior: domain
     interval: 86400
-
-rule-providers:
-  REJECT:
-    type: http
-    behavior: domain
     url: https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt
-    path: ./ruleset/REJECT.yaml
-  OPENAI:
+    path: ./ruleset/Adblock.yaml
+  OpenAI:
     type: http
     behavior: classical
     interval: 86400
@@ -272,8 +269,8 @@ rule-providers:
 
 
 rules:
-  - RULE-SET,REJECT,ADBlock
-  - RULE-SET,OpenAI,OPENAI
+  - RULE-SET,Adblock,REJECT
+  - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Speedtest,Speedtest
   - RULE-SET,GlobeMedia,GlobeMedia
   - RULE-SET,Microsoft,GlobeProxy
@@ -285,9 +282,9 @@ rules:
   - RULE-SET,Telegram,GlobeProxy
   - RULE-SET,GamePlatform,GamePlatform
   - RULE-SET,ProxyLite,GlobeProxy
-  - RULE-SET,Direct,Direct
-  - RULE-SET,LAN,Direct
-  - RULE-SET,Download,Direct
-  - RULE-SET,ChinaIP,Direct
-  - GEOIP,CN,Direct
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,LAN,DIRECT
+  - RULE-SET,Download,DIRECT
+  - RULE-SET,ChinaIP,DIRECT
+  - GEOIP,CN,DIRECT
   - MATCH,Failback
