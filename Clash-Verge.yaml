@@ -55,35 +55,7 @@ dns:
     ipcidr:
       - 240.0.0.0/4
 
-proxies:
-  - name: "Hongkong"
-    type: ss
-    server: hk.example.com
-    port: 8388
-    cipher: aes-256-gcm
-    password: "your_password"
-  - name: "Japan"
-    type: vmess
-    server: jp.example.com
-    port: 443
-    uuid: "your_uuid"
-    alterId: 0
-    cipher: auto
-    tls: true
-  - name: "Singapore"
-    type: trojan
-    server: sg.example.com
-    port: 443
-    password: "your_password"
-    sni: "example.com"
-  - name: "UnitedStates"
-    type: socks5
-    server: us.example.com
-    port: 1080
-    username: "your_username"
-    password: "your_password"
-  - name: "Reject"
-    type: reject
+proxies: null
 
 proxy-groups:
   GlobeProxy:
@@ -130,7 +102,7 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates
-  OpenAI:
+  AIProxy:
     type: select
     proxies:
       - Subscribe
@@ -270,7 +242,7 @@ rule-providers:
 
 rules:
   - RULE-SET,Adblock,REJECT
-  - RULE-SET,OpenAI,OpenAI
+  - RULE-SET,AIProxy,OpenAI
   - RULE-SET,Speedtest,Speedtest
   - RULE-SET,GlobeMedia,GlobeMedia
   - RULE-SET,Microsoft,GlobeProxy
