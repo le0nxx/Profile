@@ -26,7 +26,7 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
-  fake-ip-filter:  
+  fake-ip-filter:
     - "*.lan"
     - localhost.ptlogin2.qq.com
     - +.srv.nintendo.net
@@ -107,7 +107,7 @@ proxy-groups:
     proxies:
       - Subscribe
     filter: "(?i)GPT"
-  Speedtest:
+  SpeedtestProxy:
     type: select
     proxies:
       - Auto-Select
@@ -124,7 +124,7 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates
-  Apple:
+  AppleServices:
     type: select
     proxies:
       - Auto-Select
@@ -135,7 +135,7 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates
-  Google:
+  GoogleServices:
     type: select
     proxies:
       - Auto-Select
@@ -190,11 +190,11 @@ rule-providers:
     interval: 86400
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml
     path: ./ruleset/Direct.yaml
-  GamePlatform:
+  Game:
     type: http
     behavior: classical
     interval: 86400
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GamePlatform/Game.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml
     path: ./ruleset/GamePlatform.yaml
   Microsoft:
     type: http
@@ -242,17 +242,17 @@ rule-providers:
 
 rules:
   - RULE-SET,Adblock,REJECT
-  - RULE-SET,AIProxy,OpenAI
-  - RULE-SET,Speedtest,Speedtest
+  - RULE-SET,OpenAi,AIProxy
+  - RULE-SET,Speedtest,SpeedtestProxy
   - RULE-SET,GlobeMedia,GlobeMedia
   - RULE-SET,Microsoft,GlobeProxy
-  - RULE-SET,Apple,Apple
+  - RULE-SET,Apple,AppleServices
   - RULE-SET,Github,GlobeProxy
   - RULE-SET,Twitter,GlobeProxy
   - RULE-SET,GitHub,GlobeProxy
-  - RULE-SET,Google,Google
+  - RULE-SET,Google,GoogleServices
   - RULE-SET,Telegram,GlobeProxy
-  - RULE-SET,GamePlatform,GamePlatform
+  - RULE-SET,Game,GamePlatform
   - RULE-SET,ProxyLite,GlobeProxy
   - RULE-SET,Direct,DIRECT
   - RULE-SET,LAN,DIRECT
