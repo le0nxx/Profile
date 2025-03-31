@@ -1,0 +1,267 @@
+commixed-port: 7890
+ipv6: true
+udp: true
+allow-lan: true
+mixed-port: 7893
+redir-port: 7892
+socks-port: 7891
+bind-address: '*'
+mode: rule
+log-level: info
+unified-delay: true
+external-controller: 127.0.0.1:9090
+
+experimental:
+    ignore-resolve-fail: true
+
+hosts:
+    mtalk.google.com: 108.177.125.188
+    services.googleapis.cn: 74.125.203.94
+
+dns:
+  enable: true
+  listen: '127.0.0.1:1053'
+  ipv6: true
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  fake-ip-filter:  
+    - "*.lan"
+    - localhost.ptlogin2.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - +.xboxlive.com
+    - msftconnecttest.com
+    - xbox.*.microsoft.com
+    - "*.battlenet.com.cn"
+    - "*.battlenet.com"
+    - "*.blzstatic.cn"
+    - "*.battle.net"
+  nameserver:
+    - tls://223.5.5.5:853
+    - tls://223.6.6.6:853
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback: 
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
+proxies:
+  - name: Manual
+    type: http
+    server: example.com
+    port: 8080
+    username: user
+    password: pass
+
+proxy-groups:
+  GlobeProxy:
+    type: select
+    proxies:
+      - Auto-Select
+      - Manual
+      - Direct
+      - Hongkong
+      - Japan
+      - Singapore
+      - Taiwan
+      - UnitedStates
+  AutoSelect:
+    type: url-test
+    lazy: true
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - Subscribe
+  Manual:
+    type: select
+    use:
+      - Subscribe
+  GamePlatform:
+    type: select
+    proxies:
+      - Auto-Select
+      - Manual
+      - Direct
+      - Hongkong
+      - Japan
+      - Singapore
+      - Taiwan
+      - UnitedStates  
+  Failback:
+    type: select
+    proxies:
+      - Auto-Select
+      - Manual
+      - Direct
+      - Hongkong
+      - Japan
+      - Singapore
+      - Taiwan
+      - UnitedStates
+  Speedtest:
+    type: select
+    proxies:
+      - Auto-Select
+      - Manual
+      - Direct
+  GlobeMedia:
+    type: select
+    proxies:
+      - Auto-Select
+      - Manual
+      - Direct
+      - Hongkong
+      - Japan
+      - Singapore
+      - Taiwan
+      - UnitedStates
+  Apple:
+    type: select
+    proxies:
+      - Auto-Select
+      - Manual
+      - Direct
+      - Hongkong
+      - Japan
+      - Singapore
+      - Taiwan
+      - UnitedStates
+  Google:
+    type: select
+    proxies:
+      - Auto-Select
+      - Manual
+      - Direct
+      - Hongkong
+      - Japan
+      - Singapore
+      - Taiwan
+      - UnitedStates    
+  Adblock:
+    type: select
+    proxies:
+      - Reject
+
+rule-providers:
+  Adblock:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://ghp.ci/https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt,
+    path: ./ruleset/Adblock.yaml
+  OpenAI:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./ruleset/OpenAI.yaml
+  GlobeMedia:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
+    path: ./ruleset/GlobalMedia.yaml
+  Github:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
+    path: ./ruleset/GitHub.yaml
+  Google:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml
+    path: ./ruleset/Google.yaml
+  Telegram:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
+    path: ./ruleset/Telegram.yaml
+  Direct:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml
+    path: ./ruleset/Direct.yaml
+  GamePlatform:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GamePlatform/Game.yaml
+    path: ./ruleset/GamePlatform.yaml
+  Microsoft:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./ruleset/Microsoft.yaml
+  Apple:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml
+    path: ./ruleset/Apple.yaml
+  Twitter:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml
+    path: ./ruleset/Twitter.yaml
+  ProxyLite:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ProxyLite/ProxyLite.yaml
+    path: ./ruleset/ProxyLite.yaml
+  ChinaIP:
+    type: http
+    behavior: ipcidr
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml,
+    path: ./ruleset/ChinaIP.yaml
+  Download:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml
+    path: ./ruleset/Download.yaml
+  LAN:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/LAN/LAN.yaml
+    path: ./ruleset/LAN.yaml
+
+
+rules:
+  - RULE-SET,Adblock,Adblock
+  - RULE-SET,OpenAI,OpenAI
+  - RULE-SET,Speedtest,Speedtest
+  - RULE-SET,GlobeMedia,GlobeMedia
+  - RULE-SET,Microsoft,GlobeProxy
+  - RULE-SET,Apple,Apple
+  - RULE-SET,Github,GlobeProxy
+  - RULE-SET,Twitter,GlobeProxy
+  - RULE-SET,GitHub,GlobeProxy
+  - RULE-SET,Google,Google
+  - RULE-SET,Telegram,GlobeProxy
+  - RULE-SET,GamePlatform,GamePlatform
+  - RULE-SET,ProxyLite,GlobeProxy
+  - RULE-SET,Direct,Direct
+  - RULE-SET,LAN,Direct
+  - RULE-SET,Download,Direct
+  - RULE-SET,ChinaIP,Direct
+  - GEOIP,CN,Direct
+  - MATCH,Failback
