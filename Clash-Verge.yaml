@@ -54,9 +54,9 @@ dns:
     ipcidr:
       - 240.0.0.0/4
 
-proxies: null
+proxies: []
 
-proxy-groups:
+proxygroups:
   GlobeProxy:
     type: select
     proxies:
