@@ -1,4 +1,3 @@
-commixed-port: 7890
 ipv6: true
 udp: true
 allow-lan: true
@@ -124,7 +123,7 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates
-  Failback:
+  Fallback:
     type: select
     proxies:
       - Auto-Select
@@ -237,7 +236,7 @@ rule-providers:
 
 rules:
   - RULE-SET,Adblock,REJECT
-  - RULE-SET,AIProxy,OpenAI
+  - RULE-SET,OpenAI,AIProxy
   - RULE-SET,Speedtest,Speedtest
   - RULE-SET,GlobeMedia,GlobeMedia
   - RULE-SET,Microsoft,GlobeProxy
@@ -245,7 +244,7 @@ rules:
   - RULE-SET,Github,GlobeProxy
   - RULE-SET,Twitter,GlobeProxy
   - RULE-SET,GitHub,GlobeProxy
-  - RULE-SET,Google,Google
+  - RULE-SET,Google,GlobeProxy
   - RULE-SET,Telegram,GlobeProxy
   - RULE-SET,Game,GamePlatform
   - RULE-SET,ProxyLite,GlobeProxy
