@@ -60,7 +60,7 @@ proxygroups:
   GlobeProxy:
     type: select
     proxies:
-      - Auto-Select
+      - AutoSelect
       - Manual
       - DIRECT
       - Hongkong
@@ -82,7 +82,7 @@ proxygroups:
   GamePlatform:
     type: select
     proxies:
-      - Auto-Select
+      - AutoSelect
       - Manual
       - DIRECT
       - Hongkong
@@ -90,32 +90,16 @@ proxygroups:
       - Singapore
       - Taiwan
       - UnitedStates  
-  AIProxy:
-    type: select
-    proxies:
-      - include-all
-    filter: "(?i)GPT"
   SpeedtestProxy:
     type: select
     proxies:
-      - Auto-Select
+      - AutoSelect
       - Manual
       - DIRECT
-  GlobeMedia:
-    type: select
-    proxies:
-      - Auto-Select
-      - Manual
-      - DIRECT
-      - Hongkong
-      - Japan
-      - Singapore
-      - Taiwan
-      - UnitedStates
   AppleServices:
     type: select
     proxies:
-      - Auto-Select
+      - AutoSelect
       - Manual
       - DIRECT
       - Hongkong
@@ -126,7 +110,53 @@ proxygroups:
   Fallback:
     type: select
     proxies:
-      - Auto-Select
+      - AutoSelect
+      - Manual
+      - DIRECT
+      - Hongkong
+      - Japan
+      - Singapore
+      - Taiwan
+      - UnitedStates
+  AIProxy:
+    type: select
+    proxies:
+      - include-all
+    filter: "(?i)GPT"
+  Hongkong:
+    type: url-test
+    lazy: true
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    filter: "港|HK|(?i)Hong"
+  Japan:
+    type: url-test
+    lazy: true
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    filter: "日|JP|(?i)Japan"
+  Singapore:
+    type: url-test
+    lazy: true
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    filter: "新|SG|(?i)Sing"
+  Taiwan:
+    type: url-test
+    lazy: true
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    filter: "台|TW|(?i)Taiwan"
+  UnitedStates:
+    type: url-test
+    lazy: true
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    filter: "美|US|(?i)UnitedStates"
+  MSProxy:
+    type: select
+    proxies:
+      - AutoSelect
       - Manual
       - DIRECT
       - Hongkong
@@ -236,18 +266,17 @@ rule-providers:
 
 rules:
   - RULE-SET,Adblock,REJECT
-  - RULE-SET,OpenAI,AIProxy
   - RULE-SET,Speedtest,Speedtest
-  - RULE-SET,GlobeMedia,GlobeMedia
-  - RULE-SET,Microsoft,GlobeProxy
+  - RULE-SET,GlobeMedia,GlobeProxy
+  - RULE-SET,Microsoft,MSProxy
   - RULE-SET,Apple,AppleServices
   - RULE-SET,Github,GlobeProxy
   - RULE-SET,Twitter,GlobeProxy
-  - RULE-SET,GitHub,GlobeProxy
   - RULE-SET,Google,GlobeProxy
   - RULE-SET,Telegram,GlobeProxy
   - RULE-SET,Game,GamePlatform
   - RULE-SET,ProxyLite,GlobeProxy
+  - RULE-SET,OpenAI,AIProxy
   - RULE-SET,Direct,DIRECT
   - RULE-SET,LAN,DIRECT
   - RULE-SET,Download,DIRECT
