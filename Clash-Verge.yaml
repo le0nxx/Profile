@@ -124,7 +124,7 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates
-  Google:
+  Failback:
     type: select
     proxies:
       - Auto-Select
