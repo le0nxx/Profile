@@ -90,7 +90,7 @@ proxygroups:
       - Singapore
       - Taiwan
       - UnitedStates  
-  SpeedtestProxy:
+  Speedtest:
     type: select
     proxies:
       - AutoSelect
