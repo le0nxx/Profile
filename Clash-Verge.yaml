@@ -9,7 +9,7 @@ bind-address: '*'
 mode: rule
 log-level: info
 unified-delay: true
-external-controller: 127.0.0.1:9090
+external-controller: '127.0.0.1:9090'
 
 experimental:
     ignore-resolve-fail: true
@@ -75,11 +75,11 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 600
     use:
-      - Subscribe
+      - include-all
   Manual:
     type: select
     use:
-      - Subscribe
+      - include-all
   GamePlatform:
     type: select
     proxies:
@@ -91,21 +91,10 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates  
-  Failback:
-    type: select
-    proxies:
-      - Auto-Select
-      - Manual
-      - DIRECT
-      - Hongkong
-      - Japan
-      - Singapore
-      - Taiwan
-      - UnitedStates
   AIProxy:
     type: select
     proxies:
-      - Subscribe
+      - include-all
     filter: "(?i)GPT"
   SpeedtestProxy:
     type: select
@@ -135,7 +124,7 @@ proxy-groups:
       - Singapore
       - Taiwan
       - UnitedStates
-  GoogleServices:
+  Google:
     type: select
     proxies:
       - Auto-Select
@@ -160,6 +149,12 @@ rule-providers:
     interval: 86400
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
     path: ./ruleset/OpenAI.yaml
+  Speedtest:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Speedtest/Speedtest.yaml
+    path: ./ruleset/Speedtest.yaml
   GlobeMedia:
     type: http
     behavior: classical
@@ -242,15 +237,15 @@ rule-providers:
 
 rules:
   - RULE-SET,Adblock,REJECT
-  - RULE-SET,OpenAi,AIProxy
-  - RULE-SET,Speedtest,SpeedtestProxy
+  - RULE-SET,AIProxy,OpenAI
+  - RULE-SET,Speedtest,Speedtest
   - RULE-SET,GlobeMedia,GlobeMedia
   - RULE-SET,Microsoft,GlobeProxy
   - RULE-SET,Apple,AppleServices
   - RULE-SET,Github,GlobeProxy
   - RULE-SET,Twitter,GlobeProxy
   - RULE-SET,GitHub,GlobeProxy
-  - RULE-SET,Google,GoogleServices
+  - RULE-SET,Google,Google
   - RULE-SET,Telegram,GlobeProxy
   - RULE-SET,Game,GamePlatform
   - RULE-SET,ProxyLite,GlobeProxy
@@ -259,4 +254,4 @@ rules:
   - RULE-SET,Download,DIRECT
   - RULE-SET,ChinaIP,DIRECT
   - GEOIP,CN,DIRECT
-  - MATCH,Failback
+  - MATCH,Fallback
